@@ -102,21 +102,36 @@ print("------------Задание 4------------")
 
 
 class RealString:
-    def __init__(self, str1, str2):
-        self.str1 = str1
-        self.str2 = str2
+    def __init__(self, string):
+        self.string = string
 
-    def is_compared(self):
-        if len(self.str1) == len(self.str2):
-            return "Строки равны"
-        elif len(self.str1) > len(self.str2):
-            return "Первая строка длиннее"
-        elif len(self.str1) < len(self.str2):
-            return "Вторая строка длиннее"
+    def __len__(self):
+        return len(self.string)
+
+    def __eq__(self, other):
+        return len(self.string) == len(other)
+
+    def __gt__(self, other):
+        return len(self.string) > len(other)
+
+    def __lt__(self, other):
+        return len(self.string) < len(other)
+
+    def __le__(self, other):
+        return self.__lt__(other) or self.__eq__(other)
+
+    def __ge__(self, other):
+        return self.__gt__(other) or self.__eq__(other)
 
 
-strings = RealString("Яблоко", "Apple")
-print(strings.is_compared())
+string1 = RealString("Яблоко")
+string2 = RealString("Apple")
+print(string1 == string2)
+print(string1 < string2)
+print(string1 > string2)
+print(string1 <= string2)
+print(string1 >= string2)
+
 
 print("------------Задание 5------------")
 
