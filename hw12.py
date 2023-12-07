@@ -64,7 +64,7 @@ class RealShop(AbstractShop):
         self.is_valid(product)
         self.products.remove(product)
 
-    def all_product(self):
+    def all_product(self) -> list[Product]:
         return self.products
 
 
